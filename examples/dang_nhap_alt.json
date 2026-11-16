@@ -1,0 +1,29 @@
+{
+  "name": "Sequence - Đăng nhập (alt, loop, sd)",
+  "lifelines": [
+    {"name": "Người dùng", "kind": "actor"},
+    {"name": "LoginView", "kind": "boundary"},
+    {"name": "AuthController", "kind": "control"},
+    {"name": "UserEntity", "kind": "entity"}
+  ],
+  "messages": [
+    {"from": "Người dùng", "to": "LoginView", "text": "nhập tên đăng nhập, mật khẩu"},
+    {"from": "LoginView", "to": "AuthController", "text": "login(username, password)"},
+    {"fragment": "loop", "guard": "thử lại tối đa 3 lần", "messages": [
+      {"from": "AuthController", "to": "UserEntity", "text": "findByUsername(username)"},
+      {"from": "UserEntity", "to": "AuthController", "text": "user", "return": true}
+    ]},
+    {"fragment": "alt", "operands": [
+      {"guard": "mật khẩu đúng", "messages": [
+        {"from": "AuthController", "to": "AuthController", "text": "taoToken()"},
+        {"from": "AuthController", "to": "LoginView", "text": "token", "return": true}
+      ]},
+      {"guard": "else", "messages": [
+        {"from": "AuthController", "to": "LoginView", "text": "lỗi: sai mật khẩu", "return": true}
+      ]}
+    ]},
+    {"frame": "Chuyển trang", "messages": [
+      {"from": "LoginView", "to": "Người dùng", "text": "hiển thị trang chủ", "return": true}
+    ]}
+  ]
+}

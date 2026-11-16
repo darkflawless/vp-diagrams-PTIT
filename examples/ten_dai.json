@@ -1,0 +1,26 @@
+{
+  "name": "Use Case - Thử tên dài",
+  "system": "Hệ thống đặt lịch khám bệnh trực tuyến",
+  "actors": ["Bệnh nhân", "Bác sĩ"],
+  "usecases": [
+    "Đặt lịch",
+    "Tra cứu lịch sử khám bệnh và kết quả xét nghiệm",
+    "Hủy lịch khám",
+    "Cập nhật hồ sơ bệnh án điện tử của bệnh nhân sau buổi khám",
+    "Xác thực tài khoản bằng mã OTP",
+    "Gửi thông báo nhắc lịch qua email và SMS"
+  ],
+  "links": [
+    ["Bệnh nhân", "Đặt lịch"],
+    ["Bệnh nhân", "Tra cứu lịch sử khám bệnh và kết quả xét nghiệm"],
+    ["Bệnh nhân", "Hủy lịch khám"],
+    ["Bác sĩ", "Cập nhật hồ sơ bệnh án điện tử của bệnh nhân sau buổi khám"]
+  ],
+  "include": [
+    ["Đặt lịch", "Xác thực tài khoản bằng mã OTP"],
+    ["Tra cứu lịch sử khám bệnh và kết quả xét nghiệm", "Xác thực tài khoản bằng mã OTP"]
+  ],
+  "extend": [
+    ["Gửi thông báo nhắc lịch qua email và SMS", "Đặt lịch"]
+  ]
+}

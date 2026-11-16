@@ -1,0 +1,31 @@
+{
+  "name": "Class - Thư viện (tự bố cục)",
+  "classes": [
+    {"name": "NguoiDung", "abstract": true,
+     "attributes": ["-maNguoiDung : String", "-hoTen : String", "-email : String"],
+     "operations": ["+dangNhap(matKhau : String) : Boolean", "+dangXuat() : void"]},
+    {"name": "DocGia",
+     "attributes": ["-soThe : String", "-ngayHetHan : Date"],
+     "operations": ["+muonSach(sach : Sach) : PhieuMuon"]},
+    {"name": "ThuThu",
+     "attributes": ["-caLamViec : String"],
+     "operations": ["+duyetPhieu(p : PhieuMuon) : void"]},
+    {"name": "PhieuMuon",
+     "attributes": ["-maPhieu : String", "-ngayMuon : Date", "-hanTra : Date"],
+     "operations": ["+tinhPhat() : Float"]},
+    {"name": "ChiTietPhieuMuon",
+     "attributes": ["-soLuong : Integer"]},
+    {"name": "Sach",
+     "attributes": ["-isbn : String", "-tenSach : String", "-tacGia : String"]},
+    {"name": "ThanhToan", "stereotype": "interface",
+     "operations": ["+thanhToan(soTien : Float) : Boolean"]}
+  ],
+  "relations": [
+    {"type": "inheritance", "from": "DocGia", "to": "NguoiDung"},
+    {"type": "inheritance", "from": "ThuThu", "to": "NguoiDung"},
+    {"type": "association", "from": "DocGia", "to": "PhieuMuon", "from_mult": "1", "to_mult": "0..*"},
+    {"type": "composition", "from": "PhieuMuon", "to": "ChiTietPhieuMuon", "from_mult": "1", "to_mult": "1..*"},
+    {"type": "aggregation", "from": "ChiTietPhieuMuon", "to": "Sach", "from_mult": "0..*", "to_mult": "1"},
+    {"type": "realization", "from": "PhieuMuon", "to": "ThanhToan"}
+  ]
+}

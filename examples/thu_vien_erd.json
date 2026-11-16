@@ -1,0 +1,26 @@
+{
+  "type": "erd",
+  "name": "ERD - Thư viện (tự bố cục)",
+  "tables": [
+    {"name": "DocGia",
+     "columns": ["maDocGia int pk", "hoTen varchar(100) notnull", "email varchar(255) unique",
+                 "ngaySinh date", "ngayDangKy datetime notnull"]},
+    {"name": "PhieuMuon",
+     "columns": ["maPhieu int pk", "ngayMuon datetime notnull", "hanTra date notnull", "trangThai varchar(20)"]},
+    {"name": "ChiTietPhieuMuon",
+     "columns": ["id int pk", "soLuong int notnull", "daTra boolean"]},
+    {"name": "Sach",
+     "columns": ["maSach int pk", "tenSach varchar(255) notnull", "giaBia decimal(10,2)", "moTa text"]},
+    {"name": "TheLoai",
+     "columns": ["maTheLoai int pk", "tenTheLoai varchar(100) notnull"]},
+    {"name": "TacGia",
+     "columns": ["maTacGia int pk", "tenTacGia varchar(100) notnull"]}
+  ],
+  "relations": [
+    {"from": "DocGia", "to": "PhieuMuon", "fk": "maDocGia", "from_mult": "1", "to_mult": "0..*"},
+    {"from": "PhieuMuon", "to": "ChiTietPhieuMuon", "fk": "maPhieu", "from_mult": "1", "to_mult": "1..*", "identifying": true},
+    {"from": "Sach", "to": "ChiTietPhieuMuon", "fk": "maSach", "from_mult": "1", "to_mult": "0..*"},
+    {"from": "TheLoai", "to": "Sach", "fk": "maTheLoai", "from_mult": "1", "to_mult": "0..*"},
+    {"from": "TacGia", "to": "Sach", "fk": "maTacGia", "from_mult": "0..1", "to_mult": "0..*"}
+  ]
+}

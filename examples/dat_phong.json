@@ -1,0 +1,16 @@
+{
+  "type": "erd",
+  "name": "ERD - Đặt phòng (mẫu của Đạt)",
+  "tables": [
+    {"name": "BookingTBL", "pos": [0, 0],
+     "columns": ["id integer(10) pk", "Time time(7)", "paid integer(10)", "approve integer(10)"]},
+    {"name": "RoomBookedTBL", "pos": [1, 0],
+     "columns": ["id integer(10)", "Name integer(10) notnull", "startDate date", "endDate date"]},
+    {"name": "Room", "pos": [2, 0],
+     "columns": ["id integer(10) pk"]}
+  ],
+  "relations": [
+    {"from": "BookingTBL", "to": "RoomBookedTBL", "fk": "Bookingid", "from_mult": "0..1", "to_mult": "0..*"},
+    {"from": "Room", "to": "RoomBookedTBL", "fk": "Roomid", "from_mult": "1", "to_mult": "0..*"}
+  ]
+}

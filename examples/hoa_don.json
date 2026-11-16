@@ -1,0 +1,17 @@
+{
+  "name": "Sequence - Tạo hóa đơn (mẫu của Đạt)",
+  "lifelines": [
+    {"name": "Dashboard.xml", "kind": "boundary"},
+    {"name": "BillController", "kind": "control"},
+    {"name": "BillService", "kind": "control"},
+    {"name": "BillEntity", "kind": "entity"},
+    {"name": "Lifeline"}
+  ],
+  "messages": [
+    {"from": "Dashboard.xml", "to": "BillController", "text": ""},
+    {"from": "BillController", "to": "BillService", "text": ""},
+    {"from": "BillService", "to": "BillEntity", "text": "Create and Set"},
+    {"from": "BillEntity", "to": "BillEntity", "text": "BillEntity()"},
+    {"from": "BillEntity", "to": "BillService", "text": "return", "return": true}
+  ]
+}

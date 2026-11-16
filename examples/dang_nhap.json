@@ -1,0 +1,22 @@
+{
+  "name": "Sequence - Đăng nhập",
+  "lifelines": [
+    {"name": "Người dùng", "kind": "actor"},
+    {"name": "LoginView", "kind": "boundary"},
+    {"name": "AuthController", "kind": "control"},
+    {"name": "UserService", "kind": "control"},
+    {"name": "UserEntity", "kind": "entity"}
+  ],
+  "messages": [
+    {"from": "Người dùng", "to": "LoginView", "text": "nhập tên đăng nhập, mật khẩu"},
+    {"from": "LoginView", "to": "AuthController", "text": "login(username, password)"},
+    {"from": "AuthController", "to": "AuthController", "text": "validateInput()"},
+    {"from": "AuthController", "to": "UserService", "text": "findByUsername(username)"},
+    {"from": "UserService", "to": "UserEntity", "text": "query()"},
+    {"from": "UserEntity", "to": "UserService", "text": "user", "return": true},
+    {"from": "UserService", "to": "AuthController", "text": "user", "return": true},
+    {"from": "AuthController", "to": "AuthController", "text": "checkPassword(password)"},
+    {"from": "AuthController", "to": "LoginView", "text": "token", "return": true},
+    {"from": "LoginView", "to": "Người dùng", "text": "chuyển tới trang chủ", "return": true}
+  ]
+}

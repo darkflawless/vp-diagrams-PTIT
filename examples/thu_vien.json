@@ -1,0 +1,28 @@
+{
+  "name": "Use Case - Quản lý thư viện",
+  "system": "Hệ thống quản lý thư viện",
+  "actors":["Độc giả", "Thủ thư"],
+  "usecases": [
+    "Tìm kiếm sách",
+    "Mượn sách",
+    "Trả sách",
+    "Quản lý đầu sách",
+    "Đăng nhập",
+    "Kiểm tra thẻ thư viện",
+    "Nộp phạt quá hạn"
+  ],
+  "links": [
+    ["Độc giả", "Tìm kiếm sách"],
+    ["Độc giả", "Mượn sách"],
+    ["Độc giả", "Trả sách"],
+    ["Thủ thư", "Quản lý đầu sách"],
+    ["Thủ thư", "Trả sách"]
+  ],
+  "include": [
+    ["Mượn sách", "Kiểm tra thẻ thư viện"],
+    ["Quản lý đầu sách", "Đăng nhập"]
+  ],
+  "extend": [
+    ["Nộp phạt quá hạn", "Trả sách"]
+  ]
+}

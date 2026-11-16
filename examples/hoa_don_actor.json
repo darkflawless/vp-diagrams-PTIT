@@ -1,0 +1,21 @@
+{
+  "type": "sequence",
+  "name": "Sequence - Hóa đơn có actor (mẫu của Đạt)",
+  "lifelines": [
+    {"name": "Actor", "kind": "actor"},
+    {"name": "Dashboard.jsx", "kind": "boundary"},
+    {"name": "BillController", "kind": "control"},
+    {"name": "BillService", "kind": "control"},
+    {"name": "BillEntity", "kind": "entity"},
+    {"name": "Lifeline"}
+  ],
+  "messages": [
+    {"from": "Actor", "to": "Dashboard.jsx", "text": "click"},
+    {"from": "Dashboard.jsx", "to": "BillController", "text": ""},
+    {"from": "BillController", "to": "BillService", "text": ""},
+    {"from": "BillService", "to": "BillEntity", "text": "Create and Set"},
+    {"from": "BillEntity", "to": "BillEntity", "text": "BillEntity()"},
+    {"from": "BillEntity", "to": "BillService", "text": "return", "return": true},
+    {"from": "Dashboard.jsx", "to": "Actor", "text": "return", "return": true}
+  ]
+}

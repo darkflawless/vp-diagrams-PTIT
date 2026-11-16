@@ -1,0 +1,19 @@
+{
+  "name": "Class - Giỏ hàng (mẫu của Đạt)",
+  "classes": [
+    {"name": "ClassBook", "pos": [0, 0],
+     "attributes": ["-id : Integer", "-Type : String Enum", "-Name : String", "-PublishDate : Datetime", "-ISBN : String"]},
+    {"name": "ClassBookInCart", "pos": [1, 0],
+     "attributes": ["-id : Integer", "-Book : Book", "-anyAttribute : Object"]},
+    {"name": "ClassCart", "pos": [2, 0],
+     "attributes": ["-id : Integer", "-User : User", "-Book : List<Book>"]},
+    {"name": "ClassUser", "pos": [2, 1],
+     "attributes": ["-id : Integer", "-Name : String", "-Member : String", "-Address"],
+     "operations": ["+getMember() : String", "+getTotalBuy(startDate, endDate) : Float"]}
+  ],
+  "relations": [
+    {"type": "aggregation", "from": "ClassBookInCart", "to": "ClassBook", "from_mult": "n", "to_mult": "1"},
+    {"type": "composition", "from": "ClassCart", "to": "ClassBookInCart", "from_mult": "1", "to_mult": "n"},
+    {"type": "aggregation", "from": "ClassCart", "to": "ClassUser", "from_mult": "1", "to_mult": "1"}
+  ]
+}

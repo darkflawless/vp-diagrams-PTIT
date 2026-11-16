@@ -1,0 +1,16 @@
+{
+  "_ghi_chu": "Phong cách dùng chung cho mọi sơ đồ. Sửa ở đây, không sửa trong code. Màu theo dạng rgb(r, g, b) của VP.",
+  "fill": "rgb(122, 207, 245)",
+  "line_color": "rgb(0, 0, 0)",
+  "line_weight": 1.0,
+  "font_name": "Dialog",
+  "font_size": 11,
+  "font_color": "rgb(0, 0, 0)",
+  "system_fill": "rgb(122, 207, 245)",
+  "erd_fill": "rgb(245, 182, 122)",
+  "image_type": [
+    "svg",
+    "png_with_background"
+  ],
+  "png_scales": []
+}
