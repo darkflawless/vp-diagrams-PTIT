@@ -23,7 +23,7 @@ sơ đồ bằng lời, Claude tự viết JSON, build và mở ảnh kiểm tra
 ### Cách 1 — làm skill cho Claude Code (khuyên dùng)
 
 ```bash
-git clone https://github.com/<chu-repo>/vp-diagrams.git "%USERPROFILE%\.claude\skills\vp-diagrams"
+git clone https://github.com/darkflawless/vp-diagrams-PTIT.git "%USERPROFILE%\.claude\skills\vp-diagrams"
 ```
 
 Mở lại Claude Code rồi nói kiểu: *"vẽ giúp mình use case cho hệ thống quản lý thư viện"* hoặc gõ
